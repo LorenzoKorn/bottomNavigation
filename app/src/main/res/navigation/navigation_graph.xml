@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/mainActivity">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="lorenzokorn.bottomnavigationkotlin.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="lorenzokorn.bottomnavigationkotlin.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_rate" />
+    <fragment
+        android:id="@+id/rateFragment"
+        android:name="lorenzokorn.bottomnavigationkotlin.RateFragment"
+        android:label="@string/rate">
+        <action
+            android:id="@+id/action_rateFragment_to_ratedFragment"
+            app:destination="@id/ratedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ratedFragment"
+        android:name="lorenzokorn.bottomnavigationkotlin.RatedFragment"
+        android:label="Rated"
+        tools:layout="@layout/fragment_rated">
+        <argument
+            android:name="rating"
+            android:defaultValue="0.0"
+            app:argType="float" />
+    </fragment>
+</navigation>
